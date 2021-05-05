@@ -1,1 +1,21 @@
+/选择desktop.iso,需要不同版本就改后面的数字
+http://mirrors.aliyun.com/ubuntu-releases/18.04/
+
+/具体安装参见以下文章
+https://blog.csdn.net/weixin_30360497/article/details/96081183
+
+/如遇bio进入后卡死的问题，如遇到其他的。。。CSDN是个好东西
+https://blog.csdn.net/qq_41972927/article/details/88580898?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162023681916780264026241%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=162023681916780264026241&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-88580898.first_rank_v2_pc_rank_v29&utm_term=ubuntu%E5%AE%89%E8%A3%85%E5%8D%A1%E6%AD%BB
+
+/换源18，
+
+/第一步，2选1即可，终端输入
+/中科大
+sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
+/清华
+sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
+/第二步，输入密钥
+sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+/第三步，安装
+sudo apt update
 
