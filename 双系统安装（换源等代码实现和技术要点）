@@ -1,14 +1,36 @@
 /选择desktop.iso,需要不同版本就改后面的数字
 http://mirrors.aliyun.com/ubuntu-releases/18.04/
 
+/作为启动盘的U盘大于2G即可，会格式化，如有重要文件提前备份，如软碟通无法顺利格式化，可按如下教程清理U盘，需彻底清理的盘均可采用
+https://blog.csdn.net/moneyshi/article/details/84788283?ops_request_misc=&request_id=&biz_id=102&utm_term=%E5%BD%BB%E5%BA%95%E6%B8%85%E7%90%86u%E7%9B%98&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-5-84788283.first_rank_v2_pc_rank_v29
+
 /具体安装参见以下文章
 https://blog.csdn.net/weixin_30360497/article/details/96081183
 
 /如遇bio进入后卡死的问题，如遇到其他的。。。CSDN是个好东西
-https://blog.csdn.net/qq_41972927/article/details/88580898?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162023681916780264026241%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=162023681916780264026241&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-88580898.first_rank_v2_pc_rank_v29&utm_term=ubuntu%E5%AE%89%E8%A3%85%E5%8D%A1%E6%AD%BB
+https://blog.csdn.net/qq_41972927/article/details/88580898?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162023681916780264026241%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=162023681916780264026241&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-88580898.first_rank_v2_pc_rank_v29&utm_term=ubuntu%E5%AE%89%E8%A3%85%E5%8D%A1%E6%AD%BBs
+https://blog.csdn.net/xiao_zhui/article/details/96610195?ops_request_misc=&request_id=&biz_id=102&utm_term=ubuntu%E5%8D%A1%E6%AD%BB&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-7-96610195.first_rank_v2_pc_rank_v29
 
-/换源18，
+/删除。。。万一崩溃了想不开要重装，没关系很正常，可参考下面两篇文章以及他们所引的文章，根据自己电脑以及安装时具体情况来，实在弄不明白，把相关的都按清理U盘的方式清理干净就问题不大（亲测）
+https://blog.csdn.net/Spacegene/article/details/86659349
+https://blog.csdn.net/cxrshiz7890/article/details/105792563
 
+/语言选择和使用
+/语言选择建议直接中文。。。输入法安装是个难搞的事
+/路径名要注意，和语言有关，要提前查看
+/尽量用英文或拼音命名，很多安装都要求路径名不能有中文汉字
+
+/权限问题，Rermission denied,一般这种的报错或提示中都会有
+/进入到所显示路径的第一个有文件名的（..不算，../之后第一个，..是后退一级的意思），输入sudo chmod 777 -R <这里填刚刚那个文件名>,如显示../../abc/bcd ,则输入sudo chmod 777 -R abc
+/上面这种是针对报错一大串的，要把一串子目录附上权限，一般的直接
+sudo chmod 777 <///>(路径名）
+/只读文件也可用这个命令解开
+/详解如下，按需使用
+https://blog.csdn.net/zk437092645/article/details/8641436?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162023995116780269871114%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=162023995116780269871114&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-2-8641436.first_rank_v2_pc_rank_v29&utm_term=ubuntu+%E6%9D%83%E9%99%90%E4%B8%8D%E5%A4%9F+chmod
+/这个没试过，但有查到，保险起见放上来
+https://blog.csdn.net/u010429424/article/details/48498081?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162023995016780269842815%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=162023995016780269842815&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-7-48498081.first_rank_v2_pc_rank_v29&utm_term=ubuntu+%E6%9D%83%E9%99%90%E4%B8%8D%E5%A4%9F+chmod
+
+/换源，
 /第一步，2选1即可，终端输入
 /中科大
 sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -19,14 +41,54 @@ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31
 /第三步，安装
 sudo apt update
 
-/换源20，
-/第一步，2选1即可，终端输入
-/中科大
-sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.ustc.edu.cn/ros/ubuntu/ `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
-/清华
-sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
-/第二步，输入密钥
-sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-/第三步，安装
-sudo apt update
+/安装的包加载不出（连接超时或无法打开相应链接），两种解决方案
+/方法一：通过域名查找，查找到该网站可用域名，改进对应文件夹
+/错误提示:
+ERROR: cannot download default sources list from:
+<对应网址>
+Website may be down.
+
+原因:
+
+境外资源被屏蔽
+
+解决思路:
+
+查询错误提示中域名的IP地址，然后修改 /etc/hosts 文件，添加域名与IP映射
+
+实现:
+
+1.访问域名查询网址:https://site.ip138.com/(或其他域名查找网址）
+
+2.查询域名ip，搜索框中输入: 对应网址https://后面的那些（即域名），自由复制一个查询到的IP
+
+3.修改 /etc/hosts 文件，命令:
+sudo gedit /etc/hosts
+
+添加内容:查询到的ip 域名 (查询到的ip与域名)（例如151.101.76.133 raw.githubusercontent.com），保存并退出。
+
+或者，也可以使用 vi 或 vim 修改。
+
+4.重新执行报错命令
+
+/方法二：将相关资源备份到 gitee,修改源码,重新定位资源（方法一失效）
+实现:
+将相关资源备份到 gitee
+
+1.先打开资源备份路径:https://gitee.com/XX/XXXX，打开文件留作备用(主要是复用URL的部分内容)。
+
+2.进入"/usr/lib/python3/dist-packages/" 查找和报错域名相关的内容，调用命令:
+find . -type f | xargs grep "raw.githubusercontent"
+
+3.修改相关文件。可以使用sudo gedit命令修改文件:
+文件中涉及的 URL 内容。
+修改完毕，再重新执行之前报错的命令
+
+参考文章
+http://www.autolabor.com.cn/book/ROSTutorials/chapter1/12-roskai-fa-gong-ju-an-zhuang/127-zi-65993a-qi-ta-ros-ban-ben-an-zhuang.html
+http://www.autolabor.com.cn/book/ROSTutorials/chapter1/12-roskai-fa-gong-ju-an-zhuang/124-an-zhuang-ros.html
+
+
+
+
 
